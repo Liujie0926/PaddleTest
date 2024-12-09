@@ -155,7 +155,6 @@ class PaddleNLP_Build(Model_Build):
         """
         使用父类实现好的能力
         """
-        os.system("python -m pip install numpy==1.26.1 --force-reinstall")
         super(PaddleNLP_Build, self).build_env()
         ret = 0
         ret = self.build_paddlenlp()
