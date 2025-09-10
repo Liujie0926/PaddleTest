@@ -1,0 +1,23 @@
+case:
+  linux:
+    train:
+      -
+        name: prepare
+        path: examples
+        cmd: mkdir -p data/sft && wget -q https://bj.bcebos.com/paddlenlp/datasets/examples/alpaca_demo.gz && tar -xvf alpaca_demo.gz -C data/sft --strip-components=1 && rm -f alpaca_demo.gz
+     
+      -
+        name: fintune_sft_single
+        path: examples
+        cmd: python -u run_finetune.py ./config/qwen/sft_argument_qwen2_0p5b.json
+        params:
+          - --max_steps 5
+        result:
+          loss:
+            base: 1
+            threshold: 1
+            evaluation: "="
+    eval: skipped
+    infer: skipped
+    export: skipped
+    predict: skipped
