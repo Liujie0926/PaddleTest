@@ -9,7 +9,7 @@ case:
       -
         name: fintune_sft_single
         path: examples
-        cmd: python -u run_finetune.py ./config/qwen/sft_argument_qwen2_0p5b.json
+        cmd: python -u run_finetune.py ./config/sft_full.yaml
         params:
           - --max_steps 5
         result:
